@@ -2,9 +2,7 @@
 // declare Dragon class here
 class Dragon {
   public:
-
     // YOUR CODE HERE
-    
 
     Dragon();
     void registerDragon(const std::string& name, int tail_length, int age, int magic, Type type);
@@ -28,7 +26,5 @@ class Dragon {
     AgeCategory getAgeCategory() const;
 
   private:
-
     // YOUR CODE HERE
-    
 };

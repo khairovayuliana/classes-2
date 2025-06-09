@@ -30,5 +30,4 @@ void Dragon::registerDragon(const std::string& name, int tail, int age, int magi
 Dragon::Dragon() :
     name(""), tail_length(1), age(0), magic_power(0), is_registered(false), type(Type::FIRE) {}
 
-
 // YOUR CODE HERE (7 METHODS)
