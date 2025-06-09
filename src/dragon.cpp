@@ -16,9 +16,16 @@ Dragon::AgeCategory Dragon::getAgeCategory() const {
     return AgeCategory::ANCIENT;
 }
 
-void Dragon::registerDragon() {
-    // your code here
+void Dragon::registerDragon(const std::string& name, int tail, int age, int magic, Type type) {
+    this->name = name;
+    tail_length = tail;
+    this->age = age;
+    magic_power = magic;
+    this->type = type;
+    is_registered = true;
 }
+
+Dragon::Dragon(): name(""), tail_length(1), age(0), magic_power(0), is_registered(false), type(Type::FIRE){}
 
 void Dragon::train() {
     // your code here
