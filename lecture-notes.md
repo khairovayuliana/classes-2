@@ -61,3 +61,52 @@ public:
 ```
 - Ключевое слово `const` после объявления метода означает, что метод не изменяет поля объекта (пример: метод `display()` выше)
 - Можно вызывать у __константных__ объектов
+
+## РАЗДЕЛЬНАЯ РЕАЛИЗАЦИЯ МЕТОДОВ (В .H И .CPP ФАЙЛАХ)
+В C++ принято разделять объявление класса (в .h файле) и реализацию его методов (в .cpp файле). Это улучшает читаемость кода и ускоряет компиляцию.
+
+1. Объявление методов в .h файле
+В заголовочном файле указываем только сигнатуры методов:
+```cpp
+// point.h
+#include <cmath>
+#include <iostream>
+
+class Point {
+public:
+    double x = 0.0;
+    double y = 0.0;
+
+    // Объявления методов
+    void move(double dx, double dy);
+    double distanceTo(const Point& other) const;
+    void display() const;
+};
+```
+2. Реализация методов в .cpp файле
+Используем оператор :: (область видимости) для указания принадлежности метода классу:
+```cpp
+// point.cpp
+#include "point.h"
+#include <cmath>
+#include <iostream>
+
+// Реализация метода move
+void Point::move(double dx, double dy) {
+    x += dx;
+    y += dy;
+}
+
+// Реализация метода distanceTo
+double Point::distanceTo(const Point& other) const {
+    return sqrt(pow(x - other.x, 2) + pow(y - other.y, 2));
+}
+
+// Реализация метода display
+void Point::display() const {
+    std::cout << "Point(" << x << ", " << y << ")" << std::endl;
+}
+```
+Синтаксис:
+- `ReturnType ClassName::MethodName(Parameters) { ... }`
+- Константные методы помечаются `const` после списка параметров.
