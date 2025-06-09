@@ -1,5 +1,6 @@
 
 #include "dragon.h"
+#include <iostream>
 
 // геттеры
 std::string Dragon::getName() const { return name; }
@@ -16,6 +17,7 @@ Dragon::AgeCategory Dragon::getAgeCategory() const {
     return AgeCategory::ANCIENT;
 }
 
+// конструкторы
 void Dragon::registerDragon(const std::string& name, int tail, int age, int magic, Type type) {
     this->name = name;
     tail_length = tail;
@@ -25,24 +27,8 @@ void Dragon::registerDragon(const std::string& name, int tail, int age, int magi
     is_registered = true;
 }
 
-Dragon::Dragon(): name(""), tail_length(1), age(0), magic_power(0), is_registered(false), type(Type::FIRE){}
+Dragon::Dragon() :
+    name(""), tail_length(1), age(0), magic_power(0), is_registered(false), type(Type::FIRE) {}
 
-void Dragon::train() {
-    // your code here
-}
 
-void Dragon::ageUp() {
-    // your code here
-}
-
-void Dragon::printInfo() const {
-    // your code here
-}
-
-bool Dragon::canBreatheFire() const {
-    // your code here
-}
-
-Dragon::AgeCategory Dragon::getAgeCategory() const {
-    // your code here
-}
+// YOUR CODE HERE (7 METHODS)

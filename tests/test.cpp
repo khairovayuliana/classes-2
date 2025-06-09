@@ -4,30 +4,24 @@
 
 TEST_CASE("Type checks for Dragon fields") {
     SECTION("Check field types") {
-        // Проверяем что name - это std::string
         static_assert(
             std::is_same_v<decltype(Dragon{}.getName()), std::string>,
             "name field should be std::string");
 
-        // Проверяем что tail_length - это int
         static_assert(
             std::is_same_v<decltype(Dragon{}.getTailLength()), int>,
             "tail_length field should be int");
 
-        // Проверяем что age - это int
         static_assert(std::is_same_v<decltype(Dragon{}.getAge()), int>, "age field should be int");
 
-        // Проверяем что magic_power - это int
         static_assert(
             std::is_same_v<decltype(Dragon{}.getMagicPower()), int>,
             "magic_power field should be int");
 
-        // Проверяем что is_registered - это bool
         static_assert(
             std::is_same_v<decltype(Dragon{}.isRegistered()), bool>,
             "is_registered field should be bool");
 
-        // Проверяем что type - это enum Type
         static_assert(
             std::is_same_v<decltype(Dragon{}.getType()), Dragon::Type>,
             "type field should be Dragon::Type");
@@ -92,23 +86,23 @@ TEST_CASE("Dragon aging changes age category") {
 
     SECTION("Baby dragon (0-5 years)") {
         d.registerDragon("Tiny", 50, 3, 10, Dragon::Type::FOREST);
-        REQUIRE(d.getAgeCategoryPublic() == Dragon::AgeCategory::BABY);
+        REQUIRE(d.getAgeCategory() == Dragon::AgeCategory::BABY);
     }
 
     SECTION("Young dragon (6-20 years)") {
         d.registerDragon("Teen", 80, 15, 30, Dragon::Type::ICE);
-        REQUIRE(d.getAgeCategoryPublic() == Dragon::AgeCategory::YOUNG);
+        REQUIRE(d.getAgeCategory() == Dragon::AgeCategory::YOUNG);
     }
 
     SECTION("Age progression") {
         d.registerDragon("Grower", 100, 4, 30, Dragon::Type::FOREST);
-        REQUIRE(d.getAgeCategoryPublic() == Dragon::AgeCategory::BABY);
+        REQUIRE(d.getAgeCategory() == Dragon::AgeCategory::BABY);
 
         d.ageUp();
-        REQUIRE(d.getAgeCategoryPublic() == Dragon::AgeCategory::BABY);
+        REQUIRE(d.getAgeCategory() == Dragon::AgeCategory::BABY);
 
         d.ageUp();
-        REQUIRE(d.getAgeCategoryPublic() == Dragon::AgeCategory::YOUNG);
+        REQUIRE(d.getAgeCategory() == Dragon::AgeCategory::YOUNG);
     }
 }
 
@@ -145,7 +139,7 @@ TEST_CASE("The methods work correctly") {
     }
 
     SECTION("Fight comparison") {
-        REQUIRE(d1.canFight(d2));  // Draco сильнее Frost
+        REQUIRE(d1.canFight(d2));
         REQUIRE_FALSE(d2.canFight(d1));
     }
 }
