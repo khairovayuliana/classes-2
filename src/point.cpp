@@ -1,9 +1,26 @@
-// #include <cmath>
 
-#include "point.h"
+#include "dragon.h"
 
-// double rectangleSquare(Point a, Point b) {
-//     double width = std::abs(b.x - a.x);
-//     double height = std::abs(b.y - a.y);
-//     return width * height;
-// }
+void Dragon::registerDragon() {
+    // your code here
+}
+
+void Dragon::train() {
+    // your code here
+}
+
+void Dragon::ageUp() {
+    // your code here
+}
+
+void Dragon::printInfo() const {
+    // your code here
+}
+
+bool Dragon::canBreatheFire() const {
+    // your code here
+}
+
+Dragon::AgeCategory Dragon::getAgeCategory() const {
+    // your code here
+}
