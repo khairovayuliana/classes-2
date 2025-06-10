@@ -31,7 +31,7 @@ Magic power: 63/100
 Status: not registered
 Special ability: cannot breathe fire
 ```
-- `bool canBreatheFire() const` — возвращает true, если дракон огненного типа и его magic_power ≥ 50.
+- `bool canBreatheFire() const` — возвращает true, если дракон огненного типа и его `magic_power` ≥ 50.
 - `void rename(const std::string& newName)` - изменяет имя дракона.
 - `void celebrateBirthday()`
   - Увеличивает возраст на 1 год.
